@@ -1,11 +1,10 @@
 {
-  "schema_version": "1.10.1",
+  "schema_version": "external_observation.v1",
   "agentId": "0xmockagentid",
   "targetUrl": "https://api.example.test/protected",
   "method": "POST",
   "statusCode": 402,
   "source_scope": "external_agent_report",
-  "evidence_class": "self_reported_challenge",
   "protocol": {
     "rail": "L402",
     "network": "Lightning",
@@ -16,6 +15,7 @@
     "payment_method": "lightning"
   },
   "evidence": {
+    "evidence_class": "self_reported_challenge",
     "verification_status": "unverified",
     "verification_method": "none",
     "payment_performed": false,

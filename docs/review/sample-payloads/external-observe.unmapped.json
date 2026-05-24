@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.10.1",
+  "schema_version": "external_observation.v1",
   "agentId": "0xmockagentid",
   "targetUrl": "https://api.example.test/unknown-shape",
   "method": "GET",

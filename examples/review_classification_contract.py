@@ -4,6 +4,7 @@ from unittest.mock import patch, MagicMock
 from ln_church_agent.cli import inspect_url
 
 # This script safely validates the public classification boundaries using local mock data.
+# It actively loads and parses the schema files from docs/review/sample-payloads/.
 # It does NOT execute payments and does NOT connect to private Hondō infrastructure.
 
 def load_mock_payload(filename: str) -> dict:
@@ -40,25 +41,33 @@ def main():
     print(" 🧪 Public Contract Classification Mock Harness")
     print("==================================================")
 
-    # Test 1: Standard L402 (Valid)
+    # Test 1: Standard L402 (Valid) - Dynamically loading external-observe.valid.json
+    valid_data = load_mock_payload("external-observe.valid.json")
+    rail = valid_data["protocol"]["rail"]
     run_mock_inspection(
-        target_url="https://api.example.test/valid-l402",
-        simulate_headers={"WWW-Authenticate": 'L402 macaroon="mock_mac", invoice="mock_inv"'},
+        target_url=valid_data["targetUrl"],
+        simulate_headers={"WWW-Authenticate": f'{rail} macaroon="mock_mac", invoice="mock_inv"'},
         simulate_body={}
     )
 
-    # Test 2: Unmapped / Invalid Shape
+    # Test 2: Unmapped / Invalid Shape - Dynamically loading external-observe.unmapped.json
+    unmapped_data = load_mock_payload("external-observe.unmapped.json")
     run_mock_inspection(
-        target_url="https://api.example.test/unmapped",
+        target_url=unmapped_data["targetUrl"],
         simulate_headers={"WWW-Authenticate": 'UnknownScheme param="123"'},
         simulate_body={}
     )
 
-    # Test 3: Agent Commerce Surface (AP2) -> Expected: observe_only
+    # Test 3: Agent Commerce Surface (AP2) - Dynamically loading external-observe.observe-only.json
+    observe_data = load_mock_payload("external-observe.observe-only.json")
     run_mock_inspection(
-        target_url="https://api.example.test/ap2-commerce",
+        target_url=observe_data["targetUrl"],
         simulate_headers={"Content-Type": "application/json"},
-        simulate_body={"protocol": "ap2", "intent": "payment_mandate"}
+        # Passing the protocol and intent from the contract payload to simulate the server response
+        simulate_body={
+            "protocol": observe_data["protocol"]["payment_intent"], 
+            "intent": observe_data["protocol"]["payment_intent"]
+        }
     )
 
 if __name__ == "__main__":
