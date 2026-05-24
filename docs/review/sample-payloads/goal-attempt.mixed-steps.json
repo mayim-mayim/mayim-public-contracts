@@ -1,0 +1,50 @@
+{
+  "schema_version": "goal_attempt.v1",
+  "agentId": "0xmockagentid",
+  "goal": {
+    "declared_goal_type": "security_audit",
+    "domain_hint": "crypto",
+    "goal_text_redacted": "Assess risk of cross-chain router..."
+  },
+  "attempt": {
+    "attempt_mode": "mixed",
+    "completion_status": "success",
+    "total_monetary_cost": 0.05,
+    "total_reasoning_cost_estimate": "low",
+    "total_latency_ms": 2500
+  },
+  "steps": [
+    {
+      "step_index": 1,
+      "step_role": "fetch_free",
+      "surface_key": "web:registry:router_list",
+      "surface_type": "web_page",
+      "payment_performed": false,
+      "status": "success"
+    },
+    {
+      "step_index": 2,
+      "step_role": "validate_premium",
+      "surface_key": "paid:audit_api:v1",
+      "surface_type": "paid_surface",
+      "payment_performed": true,
+      "amount": 0.05,
+      "currency": "USDC",
+      "rail": "x402",
+      "status": "success"
+    }
+  ],
+  "outcome": {
+    "goal_achieved": true,
+    "satisfaction_level": "full",
+    "confidence": 0.95,
+    "upgrade_signal": "none",
+    "rubric_version": "outcome_rubric.v1"
+  },
+  "evidence": {
+    "evidence_class": "execution_trace",
+    "verification_status": "self_reported",
+    "payment_performed": true,
+    "payment_receipt_present": true
+  }
+}

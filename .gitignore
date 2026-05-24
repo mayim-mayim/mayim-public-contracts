@@ -1,0 +1,11 @@
+# Repomix outputs
+repomix-output.xml
+repomix-output.txt
+
+# Python caches (モック実行用)
+__pycache__/
+*.pyc
+
+# OS generated files
+.DS_Store
+Thumbs.db

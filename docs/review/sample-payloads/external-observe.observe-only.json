@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.10.1",
+  "agentId": "0xmockagentid",
+  "targetUrl": "https://api.example.test/checkout",
+  "method": "POST",
+  "statusCode": 402,
+  "source_scope": "external_agent_report",
+  "protocol": {
+    "rail": "unknown",
+    "network": "unknown",
+    "asset": "unknown",
+    "authorization_scheme": "unknown",
+    "draft_shape": "unknown",
+    "payment_intent": "payment_mandate",
+    "payment_method": "unknown"
+  },
+  "evidence": {
+    "evidence_class": "mcp_inspect_402",
+    "verification_status": "unverified",
+    "verification_method": "none",
+    "payment_performed": false,
+    "payment_receipt_present": false
+  },
+  "handoff": {
+    "handoff_mode": "guided_handoff",
+    "approval_required": true,
+    "operator_approval_reason": "commerce_surface_detected",
+    "ask_site_for": [
+      "quote_details",
+      "mandate_scope",
+      "settlement_rail_options"
+    ],
+    "do_not": [
+      "treat_mandate_as_settlement_proof"
+    ],
+    "required_evidence": [
+      "explicit_price",
+      "merchant_identity"
+    ],
+    "missing_information": [
+      "explicit_price"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.10.1",
+  "agentId": "0xmockagentid",
+  "targetUrl": "https://api.example.test/protected",
+  "method": "POST",
+  "statusCode": 402,
+  "source_scope": "external_agent_report",
+  "evidence_class": "self_reported_challenge",
+  "protocol": {
+    "rail": "L402",
+    "network": "Lightning",
+    "asset": "SATS",
+    "authorization_scheme": "L402",
+    "draft_shape": "legacy-mpp-flat",
+    "payment_intent": "charge",
+    "payment_method": "lightning"
+  },
+  "evidence": {
+    "verification_status": "unverified",
+    "verification_method": "none",
+    "payment_performed": false,
+    "payment_receipt_present": false
+  }
+}

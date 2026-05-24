@@ -1,0 +1,32 @@
+{
+  "schema_version": "goal_attempt.v1",
+  "agentId": "0xmockagentid",
+  "goal": {
+    "declared_goal_type": "tx_investigation",
+    "domain_hint": "crypto",
+    "goal_text_redacted": "Find recent activity for contract..."
+  },
+  "attempt": {
+    "attempt_mode": "free",
+    "completion_status": "partial_success",
+    "total_monetary_cost": 0,
+    "total_reasoning_cost_estimate": "medium",
+    "total_latency_ms": 1200
+  },
+  "steps": [
+    {
+      "step_index": 1,
+      "step_role": "fetch",
+      "surface_key": "web:explorer:tx",
+      "surface_type": "web_page",
+      "payment_performed": false,
+      "status": "success",
+      "latency_ms": 1200
+    }
+  ],
+  "evidence": {
+    "evidence_class": "agent_report",
+    "verification_status": "self_reported",
+    "payment_performed": false
+  }
+}

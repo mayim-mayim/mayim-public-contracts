@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.10.1",
+  "agentId": "0xmockagentid",
+  "targetUrl": "https://api.example.test/unknown-shape",
+  "method": "GET",
+  "statusCode": 402,
+  "source_scope": "external_agent_report",
+  "protocol": {
+    "rail": "unknown",
+    "network": "unknown",
+    "asset": "unknown",
+    "authorization_scheme": "unknown",
+    "draft_shape": "unsupported_challenge_shape",
+    "payment_intent": "unknown",
+    "payment_method": "unknown"
+  },
+  "evidence": {
+    "evidence_class": "crawler_detected_402",
+    "verification_status": "unverified",
+    "verification_method": "none",
+    "payment_performed": false,
+    "payment_receipt_present": false
+  },
+  "missing_information": [
+    "unsupported_challenge_shape",
+    "settlement_rail_not_declared",
+    "network_not_declared",
+    "asset_not_declared"
+  ]
+}
